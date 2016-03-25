@@ -1,0 +1,353 @@
+   body {
+      background-color: #d1d3d4;
+    }
+
+    .super-header {
+      background: -webkit-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: -o-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: -moz-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      padding: 5px 12px 5px 12px;
+      font-family: 'Open Sans', 'sans-serif';
+      font-size: 12pt;
+    }
+
+    .super-header img.avatar {
+      margin-right: 10px;
+      width: 22.5px;
+    }
+
+    .super-header .glyphicon-chevron-down {
+      color: #58595b;
+      margin: 5px 0 0 10px;
+      font-size: 18px;
+    }
+    .super-header .dropdown {
+      border-radius: 0;
+    }
+    .super-header .dropdown img.icon {
+      margin-right: 20px;
+      height: 30px;
+      width: auto;
+    }
+    .super-header .dropdown .dropdown-header {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .super-header input {
+      width: 100%;
+      border-radius: 0;
+      font-family: 'Open Sans', sans-serif;
+      padding: 5px;
+      border: 1px solid #d1d3d4;
+    }
+
+    .super-header .input-group-addon {
+      background-color: #3C6EB4;
+      color: #fff;
+      border: 0;
+      border-radius: 0;
+    }
+
+    @media (max-width: 768px) {
+      .super-header .input-group {
+        margin-top: 20px;
+      }
+    }
+
+    #logo { text-align: left; }
+
+    .bookmarks .navbar.navbar-default {
+      font-family: 'Open Sans', sans-serif;
+      background: -webkit-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: -o-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: -moz-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.9),rgba(255,255,255,1));
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .bookmarks .navbar-nav > li > a {
+      padding-bottom: 4.5px;
+      padding-top: 4.5px;
+    }
+
+    /* Bookmarks Bar: active nav item styling */
+    .bookmarks .nav > .active > a,
+    .bookmarks .nav > .active > a:hover,
+    .bookmarks .nav > .active > a:focus {
+      color: #3c6eb4;
+      background-color: transparent;
+      border-bottom: 3px solid #3c6eb4;
+    }
+
+    .navbar-default .navbar-toggle {
+      border: none;
+    }
+
+    .navbar-default .navbar-toggle:focus {
+      background-color: none;
+    }
+    @media (max-width:768px) {
+      .bookmarks .nav > .active > a, .bookmarks .nav > .active > a:hover {
+        border-bottom: none;
+        color: #3C6EB4;
+        font-weight: 700;
+      }
+      .header .dropdown.edit {
+        top: 140px !important;
+      }
+      .header h3.team {
+        top: 170px !important;
+      }
+    }
+
+    .header {
+      color: #ffffff;
+      background-color: #3c6eb4;
+      width: 100%;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .header .dropdown.edit {
+      position: absolute;
+      top: 90px;
+      right: 0;
+      z-index: 2;
+    }
+
+    .header .img-wrap {
+      max-height: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header .img-wrap img {
+      width: 100%;
+      text-align: center;
+    }
+
+    .header h3.team {
+      position: absolute;
+      top: 120px;
+      left: 45%;
+    }
+
+    .header img.avatar {
+        width: 70px;
+        float: left;
+        margin: 0 15px;
+        display: inline;
+        border: 5px solid #fff;
+    }
+
+    .header h3 {
+        font-weight: 700;
+    }
+
+    .header a, .header a:hover, .header a:focus {
+      color: #ffffff;
+    }
+
+    .header span.edit {
+      margin: 5px 5px 0 0;
+    }
+    .row {
+      padding: 5px;
+    }
+    .padded {
+      padding: 5px;
+    }
+    .medium-wide {
+      width: 300px;
+    }
+
+@media (max-width: 320px) {
+  .medium-wide {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .widget-buttons {
+      padding: 5px;
+      /* TODO -- lots more nice styling here... */
+    }
+    .panel {
+      visibility: hidden;
+      max-height: 0px;
+      overflow: hidden;
+      border: 0;
+      border-radius:0px;
+      transition: max-height 0.4s;
+    }
+
+    .panel-visible {
+      visibility: visible;
+      max-height: 100%;
+    }
+
+    .panel-info, .panel-info .panel-heading {
+      background-color: #a07cbc;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      border: 0;
+    }
+
+    .panel-info .panel-heading h3 {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .panel-info .widget-buttons a, .panel-danger .widget-buttons a {
+      color: #fff;
+    }
+
+    .panel-danger, .panel-danger .panel-heading {
+      background-color: #bd0b0b;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      border: 0;
+    }
+
+    .panel-danger .panel-heading h3 {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .panel-info .widget-buttons a {
+      color: #fff;
+    }
+
+/* generic widget styling */
+.widget .panel-default > .panel-heading {
+    font-family: 'Open Sans', 'sans-serif';
+    color: #fff;
+    background-color: #a7a9ac;
+    border-radius: 0;
+}
+
+.widget .panel-default > .panel-heading h3 {
+    font-weight: 700;
+}
+
+.widget {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* hub widgets */
+.rules-table {
+  width: 180px
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+}
+.rules-table td {
+  font-size: 32pt;
+}
+.rules-container h6 {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #797a7c;
+}
+
+.rules-container img {
+  margin-bottom: 15px;
+}
+
+#add-widget-left h4 a, #add-widget-right h4 a {
+  color: #60605b;
+}
+
+/* flexbox support */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.stats-table {
+width: 250px;
+padding: 0px;
+margin: 0px;
+display: inline-block;
+}
+.stats-table th {
+text-transform: uppercase;
+font-size: 80%;
+padding-right: 10px;
+color: #797a7c;
+}
+.stats-table td {
+font-size: 32pt;
+}
+
+.square-32 {
+    width: 32px;
+    height: 32px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.dropdown-menu {
+    border-radius: 0px !important;
+}
+
+.navbar-nav > li.idle-none    > a { }
+.navbar-nav > li.idle-day     > a { }
+.navbar-nav > li.idle-week    > a { }
+.navbar-nav > li.idle-month   > a { color: #888; }
+.navbar-nav > li.idle-quarter > a { color: #999; }
+.navbar-nav > li.idle-year    > a { color: #AAA; }
+.navbar-nav > li.idle-2years  > a { color: #BBB; }
+.navbar-nav > li.idle-5years  > a { color: #CCC; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/Comfortaa-300/Comfortaa-300.eot');
+  src: url('/fonts/Comfortaa-300/Comfortaa-300.eot?#iefix') format('embedded-opentype'),
+       local('Comfortaa Light'),
+       local('Comfortaa-300'),
+       url('/fonts/Comfortaa-300/Comfortaa-300.woff2') format('woff2'),
+       url('/fonts/Comfortaa-300/Comfortaa-300.woff') format('woff'),
+       url('/fonts/Comfortaa-300/Comfortaa-300.ttf') format('truetype'),
+       url('/fonts/Comfortaa-300/Comfortaa-300.svg#Comfortaa') format('svg');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Comfortaa-regular/Comfortaa-regular.eot');
+  src: url('/fonts/Comfortaa-regular/Comfortaa-regular.eot?#iefix') format('embedded-opentype'),
+       local('Comfortaa'),
+       local('Comfortaa-regular'),
+       url('/fonts/Comfortaa-regular/Comfortaa-regular.woff2') format('woff2'),
+       url('/fonts/Comfortaa-regular/Comfortaa-regular.woff') format('woff'),
+       url('/fonts/Comfortaa-regular/Comfortaa-regular.ttf') format('truetype'),
+       url('/fonts/Comfortaa-regular/Comfortaa-regular.svg#Comfortaa') format('svg');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/Comfortaa-700/Comfortaa-700.eot');
+  src: url('/fonts/Comfortaa-700/Comfortaa-700.eot?#iefix') format('embedded-opentype'),
+       local('Comfortaa Bold'),
+       local('Comfortaa-700'),
+       url('/fonts/Comfortaa-700/Comfortaa-700.woff2') format('woff2'),
+       url('/fonts/Comfortaa-700/Comfortaa-700.woff') format('woff'),
+       url('/fonts/Comfortaa-700/Comfortaa-700.ttf') format('truetype'),
+       url('/fonts/Comfortaa-700/Comfortaa-700.svg#Comfortaa') format('svg');
+}

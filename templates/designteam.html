@@ -1,0 +1,600 @@
+<html>
+    <head>
+        <title>kjtdimuthu</title>
+        <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="../static/css/style.css" rel="stylesheet" />
+        <link href="../static/css/pace-theme-minimal.css" rel="stylesheet" />
+        <script src="../static/js/pace.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/css/remodal.css">
+        <link rel="stylesheet" href="../static/css/remodal-default-theme.css">
+        <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.min.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="../static/js/moment.min.js"></script>
+        <script type="text/javascript" src="../static/js/transition.js"></script>
+        <script type="text/javascript" src="../static/js/collapse.js"></script>
+        <script type="text/javascript" src="../static/js/bootstrap-datetimepicker.min.js"></script>
+
+        <style>
+            .remodal-bg.with-red-theme.remodal-is-opening,
+            .remodal-bg.with-red-theme.remodal-is-opened {
+                filter: none;
+            }
+
+            .remodal-overlay.with-red-theme {
+                background-color: #f44336;
+            }
+
+            .remodal.with-red-theme {
+                background: #fff;
+            }
+            .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+                border: none;
+            }
+            input {
+                border-radius: 0 !important;
+            }
+            .tag {
+                background: #eee;
+                border-radius: 3px 0 0 3px;
+                color: #999;
+                display: inline-block;
+                height: 26px;
+                line-height: 26px;
+                padding: 0 20px 0 23px;
+                position: relative;
+                margin: 0 10px 10px 0;
+                text-decoration: none;
+                -webkit-transition: color 0.2s;
+                background-color: #333;
+                color: white;
+
+            }
+
+            .tag::before {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+                content: '';
+                height: 6px;
+                left: 10px;
+                position: absolute;
+                width: 6px;
+                top: 10px;
+            }
+
+            .tag::after {
+                background: #fff;
+                border-bottom: 13px solid transparent;
+                border-left: 10px solid #eee;
+                border-left-color: #333;
+                border-top: 13px solid transparent;
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .tag:link {
+                text-decoration: none;
+            }
+
+            .tag:visited {
+                text-decoration: none;
+            }
+
+            .tag:hover {
+                text-decoration: none;
+            }
+
+            .tag:active {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <script src="../static/js/pace.min.js"></script>
+    <body>
+
+
+        <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+            <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group" align="left">
+                        <label>Enter the URL of the meeting request below</label>
+                        <input type="text" class="form-control" id="meeting_url" placeholder="Ex: whenisgood.net/my-meeting">
+                    </div>
+                    <div class="form-group" align="left">
+                        <label><strong>(Optional)</strong> Enter the admin/edit URL of the meeting request below: </label>
+                        <input type="text" class="form-control" id="meeting_url" placeholder="Ex: whenisgood.net/my-meeting/edit/abc1def3">
+                    </div>
+                    <div class="pull-right">
+                        <button data-remodal-action="cancel" class="btn btn-danger remodal-cancel btn-sm">Cancel</button>
+                        <button data-remodal-action="confirm" class="btn btn-success remodal-confirm btn-sm">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="remodal" data-remodal-id="modal1" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+            <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group" align="left">
+                        <label>Enter the URL of the meeting request below</label>
+                        <input type="text" class="form-control" id="meeting_url" placeholder="Ex: whenisgood.net/my-meeting">
+                    </div>
+                    <div class="form-group" align="left">
+                        <label><strong>(Optional)</strong> Enter the admin/edit URL of the meeting request below: </label>
+                        <input type="text" class="form-control" id="meeting_url" placeholder="Ex: whenisgood.net/my-meeting/edit/abc1def3">
+                    </div>
+                    <div class="form-group" align="left">
+                        <button class="btn btn-default btn-sm">Create Meeting</button>
+                        <button class="btn btn-default btn-sm">Cancel Meeting Request</button>
+                    </div>
+                    <div class="pull-right">
+                        <button data-remodal-action="cancel" class="btn btn-danger remodal-cancel btn-sm">Cancel</button>
+                        <button data-remodal-action="confirm" class="btn btn-success remodal-confirm btn-sm">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="super-header">
+            <div class="row">
+                <div class="col-xs-4" id="logo"><img src="../static/img/logo-hubs.png" alt="Fedora Hubs"></div>
+                <div class="col-sm-4 col-sm-push-4 col-xs-8">
+
+                    <div class="dropdown pull-right">
+                        <img class = "icon" src="../static/img/irc_icon.png" alt="IRC Chats">
+                        <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <img src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro" class="avatar" alt="User Icon"/>
+                            kjtdimuthu
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li class="dropdown-header">Account Information</li>
+                            <li><a href="#">Full Name: Dimuthu Lakmal</a></li>
+                            <li><a href="#">Email: kjtdimuthu@gmail.com</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 col-sm-pull-4 col-xs-12">
+                    <!-- NOT HOOKED UP TO ANYTHING XOXO -->
+                    <div class="input-group">
+                        <input type="search" placeholder="Search across all hubs ..."></input>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bookmarks">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+
+                            <li>
+                                <a href="me.html">me</a></li>
+
+                            <li class='active'>
+                                <a href="#">designteam</a></li>
+
+                            <!-- At the end of the list, tack on a link to all groups -->
+                            <li><a href="#">all</a></li>
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="header">
+
+            <div class="dropdown pull-right edit">
+                <span class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-edit"></span> edit this page
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a href="#">Customize Header</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Configure Widgets</a></li>
+
+                </ul>
+            </div>
+
+
+            <div class="img-wrap">
+                <img src="../static/img/headers/header-koi.png">
+            </div>
+            <h3 class="team">designteam</h3>
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="widget-213" class="row">
+                        <div class="panel panel-default panel-visible">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <h4 class="media-heading"><strong>Fedora Design Github org</strong></h4><br>
+                                    <div class="media-body">
+                                        <div class="media-left">
+                                            <a href="#" target="_blank">
+                                                <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                            </a>
+                                            <p>Mizmo</p>
+                                        </div>
+                                        <div class="media-right">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a velit ut sapien varius pulvinar. Morbi augue sapien, pretium at nisl ac, auctor egestas nisi. Pellentesque aliquam et ligula nec porta. Aenean faucibus vulputate libero, eu dapibus ex lobortis eu. Aenean laoreet tempus pharetra. Curabitur luctus, magna a tristique volutpat, arcu eros pulvinar velit, at consequat lorem sem vel arcu. Pellentesque maximus tincidunt velit quis laoreet. Maecenas porta risus vitae tortor dignissim maximus. In quam erat, malesuada at odio elementum, aliquet placerat ante. Nam tristique libero et leo faucibus, et auctor massa luctus. Ut odio lacus, interdum at vehicula id, dignissim ut metus. Mauris ultrices dui ac ipsum mollis maximus. Phasellus dignissim mauris et mauris viverra, eget mattis libero viverra. Quisque feugiat leo sed risus gravida rutrum. Quisque fermentum sollicitudin ex, eu molestie neque feugiat sit amet. Donec eu nulla erat.</p><br>
+                                            <div class="row">
+                                                <table class="table table-borderless">
+                                                    <tr><td style="font-size: 14px">15 comments <span class="glyphicon glyphicon-menu-down"></span></td><td><div align="right" style="font-size: 14px"><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                <img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                <img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                3 Participancts</div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="background-color:#d9d9d9; font-size: 14px;">
+                                <br>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p style="color: #808080;">Dimuthu</p>
+                                        <p>Curabitur mollis nibh diam, hendrerit interdum arcu consectetur eget.</p>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p style="color: #808080;">Dimuthu</p>
+                                        <p>Curabitur mollis nibh diam, hendrerit interdum arcu consectetur eget.</p>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default panel-visible">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <h4 class="media-heading"><strong>Fedora Design Github org</strong></h4><br>
+                                    <div class="media-body">
+                                        <div class="media-left">
+                                            <a href="#" target="_blank">
+                                                <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                            </a>
+                                            <p>Mizmo</p>
+                                        </div>
+                                        <div class="media-right">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a velit ut sapien varius pulvinar. Morbi augue sapien, pretium at nisl ac, auctor egestas nisi. Pellentesque aliquam et ligula nec porta. Aenean faucibus vulputate libero, eu dapibus ex lobortis eu. Aenean laoreet tempus pharetra. Curabitur luctus, magna a tristique volutpat, arcu eros pulvinar velit, at consequat lorem sem vel arcu. Pellentesque maximus tincidunt velit quis laoreet. Maecenas porta risus vitae tortor dignissim maximus. In quam erat, malesuada at odio elementum, aliquet placerat ante. Nam tristique libero et leo faucibus, et auctor massa luctus. Ut odio lacus, interdum at vehicula id, dignissim ut metus. Mauris ultrices dui ac ipsum mollis maximus. Phasellus dignissim mauris et mauris viverra, eget mattis libero viverra. Quisque feugiat leo sed risus gravida rutrum. Quisque fermentum sollicitudin ex, eu molestie neque feugiat sit amet. Donec eu nulla erat.</p><br>
+                                            <div class="row">
+                                                <table class="table table-borderless">
+                                                    <tr><td style="font-size: 14px">15 comments <span class="glyphicon glyphicon-menu-down"></span></td><td><div align="right" style="font-size: 14px"><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                <img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                <img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                                                3 Participancts</div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="background-color:#d9d9d9; font-size: 14px;">
+                                <br>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p style="color: #808080;">Dimuthu</p>
+                                        <p>Curabitur mollis nibh diam, hendrerit interdum arcu consectetur eget.</p>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p style="color: #808080;">Dimuthu</p>
+                                        <p>Curabitur mollis nibh diam, hendrerit interdum arcu consectetur eget.</p>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="media-left">
+                                        <a href="#" target="_blank">
+                                            <img class="media-object square-32 img-circle" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div id="widget-215" class="widget row"><div class="panel panel-default panel-visible">
+                            <div class="panel-body">
+                                <div class="stats-container row">
+                                    <div class="col-sm-5 col-md-12 col-lg-5">
+                                        <table class="stats-table">
+                                            <tbody><tr><th>MEMBERS</th><th>SUBSCRIBERS</th></tr>
+                                                <tr><td>46</td><td>1845</td></tr>
+                                            </tbody></table>
+                                    </div>
+                                    <div class="col-sm-3 col-md-4 col-lg-5 col-md-offset-2" style="margin-bottom: 2px">
+                                        <div class="btn btn-info col-md-12"><span class="glyphicon glyphicon-ok"></span> Subscribe</div>
+                                    </div>
+                                    <div class="col-sm-3 col-md-4 col-lg-5 col-md-offset-2">
+                                        <div class="btn btn-info col-md-12"><span class="glyphicon glyphicon-ok"></span> Join Hub</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer panel-heading">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div> <!-- end panel --></div>
+
+                    <div id="widget-220" class="widget row">
+                        <div class="panel panel-default panel-visible">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <strong>Community Rules</strong><br>
+                                        <a href="#" style="color: rgba(160,124,188,255)">Community Rules & Guidelines</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p><strong>Group Owner</strong></p>
+                                        <table class="table table-borderless" style="color: #808080;">
+                                            <tr><td><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro"> tatica</td><td><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro"> gnokii</td></tr>
+                                            <tr><td><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro"> mizmo</td><td><img class="square-32" src="https://seccdn.libravatar.org/avatar/5863081bba592bee07a60ac2e4f39366c76d735ae6de563120954bf6ed172272?s=312&amp;d=retro"> ryanlerch</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <strong>Meetings</strong><br>
+                                        <p>This team meets every two weeks on Tuesdays at 12PM ET</p>
+                                        <a href="https://apps.fedoraproject.org/calendar/design/" style="color: rgba(160,124,188,255)">Meeting Schedule</a> | <a href="https://meetbot.fedoraproject.org/sresults/?group_id=fedora-design&type=channel" style="color: rgba(160,124,188,255)">Past Meeting Minutes</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" style="color: rgba(160,124,188,255)">Learn More... </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="widget-221" class="widget row">
+                        <div class="panel panel-default panel-visible">
+                            <div class="col-md-12 panel-heading">
+                                <h3 class="panel-title pull-left">
+                                    Meeting Reminders
+                                </h3>
+                                <div class="pull-right">
+                                    <span class="glyphicon glyphicon-menu-up widget-hide"></span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <br><br>
+                                <div>
+                                    <div class="row">
+                                        <h5>&nbsp;&nbsp;The <a href="#">Design Team meeting</a> is in 3 days:</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <strong style="font-size: 28px">Nov 04</strong>
+                                        </div>
+                                        <div class="col-md-4" style="font-size: 12px">
+                                            @11.30 AM ET<br>
+                                            <a href="#">#desing-team</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default" style="color: #a07cbc;font-size: 11px"><strong>Add to calendar</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <div class="row">
+                                        <h5>&nbsp;&nbsp;The <a href="#">Fedora 23 Wallpaper Hackfest</a> is in 1 week: </h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <strong style="font-size: 28px">Nov 12</strong>
+                                        </div>
+                                        <div class="col-md-4" style="font-size: 12px">
+                                            @11.30 AM ET<br>
+                                            <a href="#">#fedora-meeting-1</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default" style="color: #a07cbc;font-size: 11px"><strong>Add to calendar</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <div class="row">
+                                        <h5>&nbsp;&nbsp;The Fedora Hubs Demo</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <strong style="font-size: 28px">Requested</strong>
+                                        </div>
+                                        <div class="col-md-3" style="font-size: 12px" align='right'>
+                                            <a class="btn btn-default" style="color: #a07cbc;font-size: 11px" href="#modal1"><strong>edit</strong></a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default" style="color: #a07cbc;font-size: 11px"><strong>Add to calendar</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer panel-heading">
+                                <div class="row" align="center">
+                                    <a class="btn btn-default" style="color: #a07cbc" id="modalBtn" href="#modal"><strong>Request A New Meeting</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="widget-221" class="widget row">
+                        <div class="panel panel-default panel-visible">
+                            <div class="col-md-12 panel-heading">
+                                <h3 class="panel-title pull-left">
+                                    Add Meeting Reminder
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-group">
+                                        <br><br>
+                                        <label>Add a calendar feed for reminder</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-info">Add</button>
+                                    <div class="pull-right"><img src="../static/img/minus.png" width="15" height="15"><a href="#"> remove widget</a></div>
+                                </form>
+                            </div> <!-- end panel-body -->
+                        </div>
+                    </div>
+                    
+                    <div id="widget-221" class="widget row">
+                        <div class="panel panel-default panel-visible">
+                            <div class="col-md-12 panel-heading">
+                                <h3 class="panel-title pull-left">
+                                    Add Meeting Data
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-group">
+                                        <br><br>
+                                        <label>Enter a calendar feed to use for meeting</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Add a meeting minute URL</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-info">Add</button>
+                                    <div class="pull-right"><img src="../static/img/minus.png" width="15" height="15"><a href="#"> remove widget</a></div>
+                                </form>
+                            </div> <!-- end panel-body -->
+                        </div>
+                    </div>
+
+                    <div id="widget-222" class="widget row"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../static/js/utils.js"></script>
+    <script>window.jQuery || document.write('<script src="../libs/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="../static/js/remodal.min.js"></script>
+
+
+    <!-- Events -->
+    <script>
+
+        $('[data-remodal-id=modal2]').remodal({
+            modifier: 'with-red-theme'
+        });
+    </script>
+    <script>
+        $('#add_time_to_vote_btn').click(function () {
+
+            var time = $('<a href="#" class="tag">' + $('#datetimepicker12').data('date') + '</a>').hide();
+            $('#selected_time_div').append(time);
+            time.show('fast');
+        })
+    </script>
+    <script>
+        $('.widget-hide').click(function () {
+            $(this).parent().parent().next().slideToggle('slow');
+            if ($(this).hasClass('glyphicon-menu-up')) {
+                $(this).removeClass('glyphicon-menu-up');
+                $(this).addClass('glyphicon-menu-down');
+            } else if ($(this).hasClass('glyphicon-menu-down')) {
+                $(this).removeClass('glyphicon-menu-down');
+                $(this).addClass('glyphicon-menu-up');
+            }
+
+        });
+    </script>
+
+</body></html>
